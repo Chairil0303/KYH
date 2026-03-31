@@ -16,7 +16,7 @@
                 {{-- Main image --}}
                 <div class="relative rounded-2xl overflow-hidden shadow-2xl">
                     <img
-                        src="https://images.unsplash.com/photo-1606800052052-a08af7148866?q=80&w=800&auto=format&fit=crop"
+                        src="{{ asset('assets/images/tentang-bg.jpg') }}"
                         alt="KYH Team"
                         class="w-full h-[360px] object-cover"
                     >

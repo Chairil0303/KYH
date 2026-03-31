@@ -11,7 +11,7 @@
     {{-- Background Image --}}
     <div
         class="absolute inset-0 bg-cover bg-center bg-no-repeat"
-        style="background-image: url('https://images.unsplash.com/photo-1519741497674-611481863552?q=80&w=2070&auto=format&fit=crop');"
+        style="background-image: url('{{ asset('assets/images/hero-bg.jpg') }}');"
     ></div>
 
     {{-- Gradient Overlay --}}
