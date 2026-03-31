@@ -2,14 +2,14 @@
      TENTANG KAMI SECTION
      id="tentang" → navbar "Tentang Kami" anchor
      ============================================= --}}
-<section id="tentang" class="py-24 md:py-32 bg-[#FAF8F4] relative overflow-hidden">
+<section id="tentang" class="py-16 md:py-20 bg-[#FAF8F4] relative overflow-hidden">
 
     {{-- Decorative circles --}}
     <div class="absolute top-0 left-0 w-64 h-64 rounded-full bg-[#C9A84C]/5 -translate-x-1/2 -translate-y-1/2 pointer-events-none"></div>
     <div class="absolute bottom-0 right-0 w-80 h-80 rounded-full bg-[#C9A84C]/5 translate-x-1/2 translate-y-1/2 pointer-events-none"></div>
 
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-center">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center">
 
             {{-- Image Column --}}
             <div class="relative order-2 lg:order-1">
@@ -18,7 +18,7 @@
                     <img
                         src="https://images.unsplash.com/photo-1606800052052-a08af7148866?q=80&w=800&auto=format&fit=crop"
                         alt="KYH Team"
-                        class="w-full h-[480px] object-cover"
+                        class="w-full h-[360px] object-cover"
                     >
                     <div class="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent"></div>
                 </div>
@@ -41,7 +41,7 @@
                 </span>
 
                 <h2
-                    class="text-3xl sm:text-4xl md:text-5xl font-bold text-[#0D0D0D] leading-tight mb-6"
+                    class="text-2xl sm:text-3xl md:text-4xl font-bold text-[#0D0D0D] leading-tight mb-4"
                     style="font-family:'Playfair Display',serif;"
                 >
                     Kami Hadir untuk
@@ -57,7 +57,7 @@
                 </p>
 
                 {{-- Values --}}
-                <div class="space-y-3 mb-10">
+                <div class="space-y-2 mb-6">
                     @php
                         $values = [
                             ['icon' => '✦', 'title' => 'Profesional & Terpercaya', 'desc' => 'Setiap acara ditangani oleh tim berdedikasi yang telah mengelola 500+ event.'],

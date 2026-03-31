@@ -30,7 +30,7 @@
 
     {{-- Hero Content --}}
     <div
-        class="relative z-10 text-center px-4 sm:px-6 max-w-4xl mx-auto"
+        class="relative z-10 text-center px-4 sm:px-6 max-w-4xl mx-auto pt-24"
         :class="loaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'"
         style="transition: all 1s ease;"
     >
