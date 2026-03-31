@@ -11,6 +11,9 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
 
+    {{-- AOS (Animate On Scroll) CSS --}}
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css">
+
     {{-- Alpine.js CDN --}}
     <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
 
@@ -40,6 +43,25 @@
 
         /* Smooth scroll offset for fixed navbar */
         [id] { scroll-margin-top: 80px; }
+
+        /* AOS custom overrides */
+        [data-aos] { pointer-events: none; }
+        [data-aos].aos-animate { pointer-events: auto; }
+
+        /* Portfolio filter transition */
+        .portfolio-item {
+            transition: opacity 0.4s ease, transform 0.4s ease;
+        }
+        .portfolio-item[style*="display: none"] {
+            display: none !important;
+        }
+
+        /* Parallax helper */
+        .parallax-bg {
+            background-attachment: fixed;
+            background-size: cover;
+            background-position: center;
+        }
     </style>
 </head>
 <body class="antialiased">
@@ -54,6 +76,17 @@
 
     {{-- Footer --}}
     <x-footer />
+
+    {{-- AOS JS + Init --}}
+    <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+    <script>
+        AOS.init({
+            once: true,
+            duration: 800,
+            easing: 'ease-out-cubic',
+            offset: 80,
+        });
+    </script>
 
 </body>
 </html>

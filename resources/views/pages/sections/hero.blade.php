@@ -8,9 +8,9 @@
     x-data="{ loaded: false }"
     x-init="setTimeout(() => loaded = true, 100)"
 >
-    {{-- Background Image --}}
+    {{-- Background Image (bg-fixed = CSS Parallax) --}}
     <div
-        class="absolute inset-0 bg-cover bg-center bg-no-repeat"
+        class="absolute inset-0 bg-cover bg-center bg-no-repeat bg-fixed"
         style="background-image: url('{{ asset('assets/images/hero-bg.jpg') }}');"
     ></div>
 

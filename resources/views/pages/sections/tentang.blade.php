@@ -12,7 +12,7 @@
         <div class="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center">
 
             {{-- Image Column --}}
-            <div class="relative order-2 lg:order-1">
+            <div class="relative order-2 lg:order-1" data-aos="fade-right" data-aos-duration="900">
                 {{-- Main image --}}
                 <div class="relative rounded-2xl overflow-hidden shadow-2xl">
                     <img
@@ -35,7 +35,7 @@
             </div>
 
             {{-- Text Column --}}
-            <div class="order-1 lg:order-2">
+            <div class="order-1 lg:order-2" data-aos="fade-left" data-aos-duration="900">
                 <span class="inline-block text-[#C9A84C] text-xs tracking-[0.4em] uppercase font-medium mb-4">
                     — Tentang Kami —
                 </span>

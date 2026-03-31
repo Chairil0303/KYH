@@ -13,8 +13,8 @@
                 ];
             @endphp
 
-            @foreach ($stats as $stat)
-                <div class="text-center py-4 px-6">
+            @foreach ($stats as $i => $stat)
+                <div class="text-center py-4 px-6" data-aos="fade-up" data-aos-delay="{{ $i * 100 }}">
                     <div
                         class="text-3xl md:text-4xl font-bold text-[#C9A84C] mb-1"
                         style="font-family:'Playfair Display',serif;"

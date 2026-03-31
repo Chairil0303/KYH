@@ -11,7 +11,7 @@
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
         {{-- Section Header --}}
-        <div class="text-center mb-16">
+        <div class="text-center mb-16" data-aos="fade-up">
             <span class="inline-block text-[#C9A84C] text-xs tracking-[0.4em] uppercase font-medium mb-4">
                 — Layanan Kami —
             </span>
@@ -68,6 +68,9 @@
                            shadow-lg hover:shadow-2xl hover:shadow-[#C9A84C]/20
                            transform hover:-translate-y-2 transition-all duration-500"
                     id="service-card-{{ $i + 1 }}"
+                    data-aos="fade-up"
+                    data-aos-delay="{{ $i * 120 }}"
+                    data-aos-duration="700"
                 >
                     <div class="absolute inset-0">
                         <img
