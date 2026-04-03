@@ -64,6 +64,23 @@ Alpine.js: scroll detection + mobile menu + active section
                 @endforeach
             </ul>
 
+            {{-- ===== DARK MODE TOGGLE (Desktop) ===== --}}
+            <button
+                @click="$store.theme.toggle()"
+                class="theme-toggle hidden md:flex"
+                :title="$store.theme.dark ? 'Switch to Light Mode' : 'Switch to Dark Mode'"
+                aria-label="Toggle dark mode"
+            >
+                {{-- Sun: shown in dark mode, click → go light --}}
+                <svg x-show="$store.theme.dark" class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M12 3v2.25m6.364.386l-1.591 1.591M21 12h-2.25m-.386 6.364l-1.591-1.591M12 18.75V21m-4.773-4.227l-1.591 1.591M5.25 12H3m4.227-4.773L5.636 5.636M15.75 12a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0z"/>
+                </svg>
+                {{-- Moon: shown in light mode, click → go dark --}}
+                <svg x-show="!$store.theme.dark" class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24" style="display:none;">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M21.752 15.002A9.718 9.718 0 0118 15.75c-5.385 0-9.75-4.365-9.75-9.75 0-1.33.266-2.597.748-3.752A9.753 9.753 0 003 11.25C3 16.635 7.365 21 12.75 21a9.753 9.753 0 009.002-5.998z"/>
+                </svg>
+            </button>
+
             {{-- ===== CTA BUTTON (Desktop) ===== --}}
             <div class="hidden md:block">
                 <a href="#kontak" class="inline-flex items-center gap-2 px-6 py-2.5 rounded-full text-sm font-semibold tracking-wider uppercase
@@ -111,6 +128,22 @@ Alpine.js: scroll detection + mobile menu + active section
                     {{ $link['label'] }}
                 </a>
             @endforeach
+
+            {{-- Dark mode toggle in mobile --}}
+            <button
+                @click="$store.theme.toggle(); mobileOpen = false"
+                class="w-full flex items-center gap-3 px-4 py-3 text-sm font-medium tracking-wider uppercase
+                       text-white/80 hover:text-[#C9A84C] hover:bg-white/5 rounded-lg transition-colors duration-200"
+            >
+                <svg x-show="$store.theme.dark" class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M12 3v2.25m6.364.386l-1.591 1.591M21 12h-2.25m-.386 6.364l-1.591-1.591M12 18.75V21m-4.773-4.227l-1.591 1.591M5.25 12H3m4.227-4.773L5.636 5.636M15.75 12a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0z"/>
+                </svg>
+                <svg x-show="!$store.theme.dark" class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24" style="display:none;">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M21.752 15.002A9.718 9.718 0 0118 15.75c-5.385 0-9.75-4.365-9.75-9.75 0-1.33.266-2.597.748-3.752A9.753 9.753 0 003 11.25C3 16.635 7.365 21 12.75 21a9.753 9.753 0 009.002-5.998z"/>
+                </svg>
+                <span x-text="$store.theme.dark ? 'Light Mode' : 'Dark Mode'"></span>
+            </button>
+
             <div class="pt-4 pb-2">
                 <a href="#kontak" @click="mobileOpen = false" class="block w-full text-center py-3 rounded-full font-semibold tracking-wider uppercase
                            bg-[#C9A84C] text-[#0D0D0D] hover:bg-[#E2BE7A] transition-colors duration-300">
