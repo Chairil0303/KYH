@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\Admin\AuthController;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -14,33 +16,37 @@ Route::get('/', function () {
 })->name('home');
 
 
-// ===== ADMIN AUTH ROUTES =====
+// ===== ADMIN AUTH ROUTES (guest only) =====
 Route::prefix('admin')->name('admin.')->group(function () {
 
-    // Login Page (GET)
+    // Login Page — redirect ke dashboard kalau sudah login
     Route::get('/login', function () {
+        if (Auth::guard('admin')->check()) {
+            return redirect()->route('admin.dashboard');
+        }
         return view('pages.admin.login');
     })->name('login');
 
-    // Login Submit (POST) — placeholder, handler will be built later
-    Route::post('/login', function () {
-        // TODO: implement AuthController@login
-        return back()->with('error', 'Fitur login sedang dalam pengembangan.');
-    })->name('login.post');
-
-    // Register Page — placeholder
-    Route::get('/register', function () {
-        return back();
-    })->name('register');
+    // Login Submit
+    Route::post('/login', [AuthController::class, 'login'])->name('login.post');
 
     // Forgot Password — placeholder
     Route::get('/forgot-password', function () {
-        return back();
+        return back()->with('error', 'Fitur reset password belum tersedia.');
     })->name('password.request');
 
-    // Logout — placeholder
-    Route::post('/logout', function () {
-        return redirect()->route('home');
-    })->name('logout');
+
+    // ===== PROTECTED ADMIN ROUTES =====
+    Route::middleware('admin.auth')->group(function () {
+
+        // Dashboard
+        Route::get('/dashboard', function () {
+            return view('pages.admin.dashboard');
+        })->name('dashboard');
+
+        // Logout
+        Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
+
+    });
 
 });
