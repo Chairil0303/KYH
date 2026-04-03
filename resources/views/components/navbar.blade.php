@@ -81,8 +81,24 @@ Alpine.js: scroll detection + mobile menu + active section
                 </svg>
             </button>
 
-            {{-- ===== CTA BUTTON (Desktop) ===== --}}
-            <div class="hidden md:block">
+            {{-- ===== DESKTOP RIGHT ACTIONS ===== --}}
+            <div class="hidden md:flex items-center gap-3">
+
+                {{-- Login Button --}}
+                <a href="{{ route('admin.login') }}"
+                   id="navbar-login-btn"
+                   class="inline-flex items-center gap-1.5 px-4 py-2 rounded-full text-sm font-medium tracking-wider uppercase
+                          border border-[#C9A84C]/50 text-[#C9A84C]
+                          hover:bg-[#C9A84C]/10 hover:border-[#C9A84C]
+                          transform hover:-translate-y-0.5
+                          transition-all duration-300">
+                    <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 9V5.25A2.25 2.25 0 0013.5 3h-6a2.25 2.25 0 00-2.25 2.25v13.5A2.25 2.25 0 007.5 21h6a2.25 2.25 0 002.25-2.25V15m3 0l3-3m0 0l-3-3m3 3H9"/>
+                    </svg>
+                    Login
+                </a>
+
+                {{-- CTA Button --}}
                 <a href="#kontak" class="inline-flex items-center gap-2 px-6 py-2.5 rounded-full text-sm font-semibold tracking-wider uppercase
                            bg-[#C9A84C] text-[#0D0D0D]
                            hover:bg-[#E2BE7A] hover:shadow-lg hover:shadow-[#C9A84C]/30
@@ -144,7 +160,18 @@ Alpine.js: scroll detection + mobile menu + active section
                 <span x-text="$store.theme.dark ? 'Light Mode' : 'Dark Mode'"></span>
             </button>
 
-            <div class="pt-4 pb-2">
+            <div class="pt-4 pb-2 space-y-3">
+                {{-- Login button mobile --}}
+                <a href="{{ route('admin.login') }}" @click="mobileOpen = false"
+                   class="flex items-center justify-center gap-2 w-full py-3 rounded-full font-medium tracking-wider uppercase text-sm
+                          border border-[#C9A84C]/50 text-[#C9A84C]
+                          hover:bg-[#C9A84C]/10 transition-colors duration-300">
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 9V5.25A2.25 2.25 0 0013.5 3h-6a2.25 2.25 0 00-2.25 2.25v13.5A2.25 2.25 0 007.5 21h6a2.25 2.25 0 002.25-2.25V15m3 0l3-3m0 0l-3-3m3 3H9"/>
+                    </svg>
+                    Login Admin
+                </a>
+
                 <a href="#kontak" @click="mobileOpen = false" class="block w-full text-center py-3 rounded-full font-semibold tracking-wider uppercase
                            bg-[#C9A84C] text-[#0D0D0D] hover:bg-[#E2BE7A] transition-colors duration-300">
                     Konsultasi Gratis
