@@ -10,6 +10,8 @@
 
     @include('pages.sections.portofolio')
 
+    @include('pages.sections.partners')
+
     @include('pages.sections.kontak')
 
 </x-layouts.app>
